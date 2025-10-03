@@ -1,0 +1,18 @@
+[UbuntuServer1]
+192.168.56.112
+
+[UbuntuServer2]
+192.168.56.106
+
+[CentOSServer2]
+192.168.56.107 ansible_user=roallos-centos
+
+[db_servers:children]
+UbuntuServer1
+
+[web_servers:children]
+UbuntuServer1
+CentOSServer2
+
+[file_servers:children]
+CentOSServer2
